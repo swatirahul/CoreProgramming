@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Basic Programs</title>
+        <style>
+            body {
+                background-color: azure;
+            }
+
+            h1{
+                font-size: medium;
+                color: #000;
+                font-family: 'Courier New', Courier, monospace;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <script>
+            /*create * pattern*/
+            let i, j, k, l, x=5;
+
+            for(let i=1; i<=x; i++){
+                for(let k=1; k<=x-i; k++){
+                    document.write("&nbsp;&nbsp;")
+                }
+                for(let j=1; j<=i; j++){
+                    document.write("*")
+                }
+                document.write("<br/>")
+                
+            }
+        
+            document.write("<br/>")
+            document.write("<br/>")
+
+
+            for(let i=x; i>=1; i--){
+                
+                for(let j=1; j<=i; j++){
+                    document.write("*")
+                }
+                document.write("<br/>")
+                
+            }
+                  </script>
+    </body>
+</html>
+

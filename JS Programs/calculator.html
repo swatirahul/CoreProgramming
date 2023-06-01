@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Calculator</h2>
+  <div class="output">
+    <pre id="upper"></pre>
+    <pre id="lower">0</pre>
+  </div>
+  <button type="button" class="btn btn-primary" onclick="pressOperator(this)">+</button>
+  <button type="button" class="btn btn-primary" onclick="pressOperator(this)">-</button>
+  <button type="button" class="btn btn-primary" onclick="pressNum(this)">1</button>
+  <button type="button" class="btn btn-primary" onclick="pressNum(this)">2</button>
+  <button type="button" class="btn btn-primary" onclick="pressEqual()">=</button>
+  
+  <button type="button" class="btn btn-danger" onclick="pressClear()">Exit</button>
+ 
+</div>
+<script>
+    // javascript calculator
+
+// upper output is for showing the expression
+let outputUpper = document.querySelector("#upper");
+// lower output is for showing the result
+let outputLower = document.querySelector("#lower");
+
+// function to get number input
+function pressNum(e) {
+  if (outputLower.innerHTML === "0") {
+    outputLower.innerHTML = e.innerHTML;
+  } else {
+    outputLower.innerHTML += e.innerHTML;
+  }
+}
+
+// clear all
+function pressAllClear() {
+    outputUpper.innerHTML = "";
+    outputLower.innerHTML = "0";
+  } 
+// clear one
+function pressClear() {
+  outputLower.innerHTML = outputLower.innerHTML.slice(0, -1);
+}
+
+// calculate button
+function pressEqual() {
+  let exp = outputLower.innerHTML;
+  outputUpper.innerHTML = exp;
+  exp = exp.replace(/×/g, "*").replace(/÷/g, "/");
+  let result;
+  try {
+    result = eval(exp);
+    // if decimal number more than 4 decimal places
+    if (result.toString().indexOf(".") !== -1) {
+      result = result.toFixed(4);
+    }
+  } catch (e) {
+    result = "Error";
+  }
+  outputLower.innerHTML = result;
+}
+
+function pressOperator(e) {
+  // check last operator
+  let lastOperator = outputLower.innerHTML.slice(-1);
+  if (lastOperator.includes("+", "-", "×", "÷")) {
+    output.innerHTML = outputLower.innerHTML.slice(0, -1) + e.innerHTML;
+  } else {
+    outputLower.innerHTML += e.innerHTML;
+  }
+}
+
+</script>
+</body>
+</html>
