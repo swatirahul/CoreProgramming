@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Eligible for vote or not</title>
+</head>
+<body>
+    <script>
+        function checkVotingEligibility(gender, age){
+            if( gender === "male"&& age>25 && age<60){
+                return"eligible for vote";
+               
+            } 
+        
+        else{
+            return "not eligible for vote";
+           
+        }
+    }
+    var gender = "male";
+    var age = 20;
+
+    document.write(checkVotingEligibility(gender,age));
+    </script>
+</body>
+</html>
