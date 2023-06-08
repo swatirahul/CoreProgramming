@@ -6,6 +6,5 @@ var gender = "male";
         
         else{
             console.log("not eligible for vote");
-           
         }
     

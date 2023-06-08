@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Js Calculator</title>
+    <style>
+        
+    </style>
+    <script type="text/javascript">
+        function cal(){
+            var x, y,z,D;
+            x=document.getElementById('inp1').value;
+            y=document.getElementById('inp2').value;
+            D=document.getElementById("Operations").value;
+
+            if(D=="add"){
+                z=parseInt(x)+parseInt(y);
+                document.getElementById("res").value=z;
+            }
+            if(D=="sub"){
+                z=x-y;
+                document.getElementById("res").value=z;
+            }
+            if(D=="mul"){
+                z=x*y;
+                document.getElementById("res").value=z;
+            }
+            if(D=="div"){
+                z=x/y;
+                document.getElementById("res").value=z;
+            }
+        }
+    </script>
+</head>
+    <body>
+        <form>
+            <label for="cars">Choose a Operations:</label>
+            <select name="Operations" id="Operations" onchange="cal(this.value);">
+                <option value="add">Addition</option>
+                <option value="sub">Subtraction</option>
+                <option value="mul">Multiplication</option>
+                <option value="div">Division</option>
+              </select><br><br>
+            <label for="inp1">First name:</label><br>
+            <input type="text" id="inp1" name="" onkeyup="cal();"><br>
+            <label for="inp2">Last name:</label><br>
+            <input type="text" id="inp2" name="" onkeyup="cal();"><br><br>
+           
+  
+  <br><br>
+ <label for="res">result</label>
+  <input type="text" id="res" name="">
+          </form>
+    </body>
+</html>
